@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+            <h:form>
+                <p:growl>
+                    <p:toolbar>
+                        <p:toolbarGroup align="left">
+                            <p:outputLabel value="Hello #{loginBean.getUsername()}"/>
+                            <p:separator />
+                            <p:commandButton value="Game" icon="ui-icon-play" action="game"/>
+                            <p:separator />
+                            <p:button value="Highscores" icon="ui-icon-script" outcome="highscores"/>
+                        </p:toolbarGroup>
+                        <p:toolbarGroup align="right">
+                            <p:commandButton value="Logout" icon="ui-icon-close" action="#{loginBean.logout()}"/>
+                        </p:toolbarGroup>
+                    </p:toolbar>
+                </p:growl>
+            </h:form>
+            <div id="content">
+                <ui:insert name="content">[content]</ui:insert>
+            </div>
+    </h:body>
+</html>
+
