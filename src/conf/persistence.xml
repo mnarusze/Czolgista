@@ -4,6 +4,7 @@
     <jta-data-source>jdbc/czolgista</jta-data-source>
     <class>czolgista.server.entity.Highscores</class>
     <class>czolgista.server.entity.Users</class>
+    <class>czolgista.server.entity.Groups</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
     </properties>

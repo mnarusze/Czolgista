@@ -14,9 +14,9 @@
                         <p:toolbarGroup align="left">
                             <p:outputLabel value="Hello #{loginBean.getUsername()}"/>
                             <p:separator />
-                            <p:commandButton value="Game" icon="ui-icon-play" action="game?faces-redirect=true"/>
+                            <p:button value="Game" icon="ui-icon-play" outcome="game?faces-redirect=true"/>
                             <p:separator />
-                            <p:commandButton value="Highscores" icon="ui-icon-script" action="highscores?faces-redirect=true"/>
+                            <p:button value="Highscores" icon="ui-icon-script" outcome="highscores?faces-redirect=true"/>
                         </p:toolbarGroup>
                         <p:toolbarGroup align="right">
                             <p:commandButton value="Logout" icon="ui-icon-close" action="#{loginBean.logout()}"/>

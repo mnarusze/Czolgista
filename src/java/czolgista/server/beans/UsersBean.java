@@ -42,7 +42,7 @@ public class UsersBean {
     public String addUser(Users users) {
         EntityManager em = getEntityManager();
         try{
-            em.getTransaction().begin();
+            
             Query query = em.createQuery(
                 "SELECT u FROM Users u WHERE u.username = '" + users.getUsername() + "'");
             if (!query.getResultList().isEmpty()) {
@@ -50,6 +50,7 @@ public class UsersBean {
                     "Błąd: podana nazwa użytkownika już istnieje!", null));
                     return "failure";
             }
+            em.getTransaction().begin();
             em.persist(users);
             em.getTransaction().commit();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
@@ -63,6 +64,7 @@ public class UsersBean {
         }
             finally {
                 em.close();
+                emf.close();
         }
     }
 
