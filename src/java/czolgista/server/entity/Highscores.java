@@ -15,7 +15,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,14 +22,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author mnarusze
  */
 @Entity
-@Table(name = "groups")
+@Table(name = "highscores")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Groups.findAll", query = "SELECT g FROM Groups g"),
-    @NamedQuery(name = "Groups.findById", query = "SELECT g FROM Groups g WHERE g.id = :id"),
-    @NamedQuery(name = "Groups.findByUsername", query = "SELECT g FROM Groups g WHERE g.username = :username"),
-    @NamedQuery(name = "Groups.findByGroupname", query = "SELECT g FROM Groups g WHERE g.groupname = :groupname")})
-public class Groups implements Serializable {
+    @NamedQuery(name = "Highscores.findAll", query = "SELECT h FROM Highscores h"),
+    @NamedQuery(name = "Highscores.findById", query = "SELECT h FROM Highscores h WHERE h.id = :id"),
+    @NamedQuery(name = "Highscores.findByUserId", query = "SELECT h FROM Highscores h WHERE h.userId = :userId"),
+    @NamedQuery(name = "Highscores.findByScore", query = "SELECT h FROM Highscores h WHERE h.score = :score")})
+public class Highscores implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,26 +38,24 @@ public class Groups implements Serializable {
     private Short id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 128)
-    @Column(name = "username")
-    private String username;
+    @Column(name = "user_id")
+    private short userId;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 32)
-    @Column(name = "groupname")
-    private String groupname;
+    @Column(name = "score")
+    private int score;
 
-    public Groups() {
+    public Highscores() {
     }
 
-    public Groups(Short id) {
+    public Highscores(Short id) {
         this.id = id;
     }
 
-    public Groups(Short id, String username, String groupname) {
+    public Highscores(Short id, short userId, int score) {
         this.id = id;
-        this.username = username;
-        this.groupname = groupname;
+        this.userId = userId;
+        this.score = score;
     }
 
     public Short getId() {
@@ -69,20 +66,20 @@ public class Groups implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public short getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(short userId) {
+        this.userId = userId;
     }
 
-    public String getGroupname() {
-        return groupname;
+    public int getScore() {
+        return score;
     }
 
-    public void setGroupname(String groupname) {
-        this.groupname = groupname;
+    public void setScore(int score) {
+        this.score = score;
     }
 
     @Override
@@ -95,10 +92,10 @@ public class Groups implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Groups)) {
+        if (!(object instanceof Highscores)) {
             return false;
         }
-        Groups other = (Groups) object;
+        Highscores other = (Highscores) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -107,7 +104,7 @@ public class Groups implements Serializable {
 
     @Override
     public String toString() {
-        return "czolgista.server.entity.Groups[ id=" + id + " ]";
+        return "czolgista.server.entity.Highscores[ id=" + id + " ]";
     }
     
 }

@@ -1,17 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <center>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   template="/template.xhtml">
+
+   <ui:define name="content">
+      <center>
         <h:form>
-            <c:if test="#{loginBean.logged}">
-                
-            </c:if>
                 <h:messages errorClass="errorMessage" infoClass="infoMessage"
                             warnClass="warnMessage" layout="table" style="color: red"></h:messages>
                 <h:panelGrid columns="2">
@@ -23,10 +19,8 @@
                     
                     <h:commandButton value="Submit" action="#{loginBean.login()}"
                                      type="submit"></h:commandButton>
-                    
-                    <h:commandLink value="Register" action="register"></h:commandLink>
                 </h:panelGrid>
         </h:form>
         </center>
-    </h:body>
-</html>
+   </ui:define>
+</ui:composition>

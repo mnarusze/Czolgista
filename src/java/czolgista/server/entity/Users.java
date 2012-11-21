@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author maryl
+ * @author mnarusze
  */
 @Entity
 @Table(name = "users")
@@ -28,8 +28,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
     @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id"),
-    @NamedQuery(name = "Users.findByLogin", query = "SELECT u FROM Users u WHERE u.login = :login"),
-    @NamedQuery(name = "Users.findByPass", query = "SELECT u FROM Users u WHERE u.pass = :pass")})
+    @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"),
+    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
+    @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")})
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,14 +40,18 @@ public class Users implements Serializable {
     private Short id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 128)
-    @Column(name = "login")
-    private String login;
+    @Size(min = 1, max = 150)
+    @Column(name = "username")
+    private String username;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 32)
-    @Column(name = "pass")
-    private String pass;
+    @Size(min = 1, max = 150)
+    @Column(name = "password")
+    private String password;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 50)
+    @Column(name = "email")
+    private String email;
 
     public Users() {
     }
@@ -55,10 +60,10 @@ public class Users implements Serializable {
         this.id = id;
     }
 
-    public Users(Short id, String login, String pass) {
+    public Users(Short id, String username, String password) {
         this.id = id;
-        this.login = login;
-        this.pass = pass;
+        this.username = username;
+        this.password = password;
     }
 
     public Short getId() {
@@ -69,20 +74,28 @@ public class Users implements Serializable {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
