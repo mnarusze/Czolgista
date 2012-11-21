@@ -4,8 +4,8 @@ drop table if exists `highscores`;
 
 create table `users` (
     id smallint NOT NULL AUTO_INCREMENT,
-    login varchar(128) NOT NULL UNIQUE,
-    pass varchar(32) NOT NULL,
+    username varchar(128) NOT NULL UNIQUE,
+    password varchar(32) NOT NULL,
     PRIMARY KEY (id)
 );
 
