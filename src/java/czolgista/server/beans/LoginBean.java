@@ -57,7 +57,7 @@ public class LoginBean {
             session.invalidate();
         }
         FacesContext.getCurrentInstance().getApplication().getNavigationHandler().
-                handleNavigation(FacesContext.getCurrentInstance(), null, "/faces/login.xhtml");
+                handleNavigation(FacesContext.getCurrentInstance(), null, "/login.xhtml");
     }
     
     public boolean isLogged() {

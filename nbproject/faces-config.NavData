@@ -2,12 +2,13 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="register.xhtml" x="400" y="300" zoom="true"/>
-        <Node id="secure/highscores.xhtml" x="400" y="150" zoom="true"/>
-        <Node id="secure/game.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="login.xhtml" x="150" y="300" zoom="true"/>
-        <Node id="accessdenied.xhtml" x="150" y="450" zoom="true"/>
-        <Node id="secure/template.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="register.xhtml" x="734" y="210" zoom="true"/>
+        <Node id="login.xhtml" x="406" y="467" zoom="true"/>
+        <Node id="secure/highscores.xhtml" x="351" y="36" zoom="true"/>
+        <Node id="secure/game.xhtml" x="109" y="175" zoom="true"/>
+        <Node id="template.xhtml" x="984" y="298" zoom="true"/>
+        <Node id="accessdenied.xhtml" x="92" y="415" zoom="true"/>
+        <Node id="secure/template.xhtml" x="736" y="79" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>
