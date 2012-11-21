@@ -3,22 +3,26 @@
    xmlns:ui="http://java.sun.com/jsf/facelets"
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
    template="/template.xhtml">
 
    <ui:define name="content">
       <center>
-        <h:form>
-                <h:panelGrid columns="2">
+          <h:form id="login">           
+                <p:panel header="Login">
+                    <h:panelGrid columns="2">
                     <h:outputText value="Username : "></h:outputText>
                     <h:inputText id="username" value="#{loginBean.username}"></h:inputText>
                     
                     <h:outputText value="Password : "></h:outputText>
                     <h:inputSecret id="password" value="#{loginBean.password}"></h:inputSecret>
-                    
-                    <h:commandButton value="Submit" action="#{loginBean.login()}"
+                    <h:outputLabel/>
+                    <h:commandButton value="Loguj się" action="#{loginBean.login()}"
                                      type="submit"></h:commandButton>
-                </h:panelGrid>
-        </h:form>
+                    </h:panelGrid>
+                    <p:messages id="messages" autoUpdate="true"/>
+                </p:panel>
+          </h:form>
         </center>
    </ui:define>
 </ui:composition>
