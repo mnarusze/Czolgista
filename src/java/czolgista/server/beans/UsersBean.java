@@ -25,7 +25,7 @@ import javax.persistence.Query;
 public class UsersBean {
     @Id @GeneratedValue
     
-    Users user;
+    private Users user;
     private EntityManagerFactory emf;
     
     public UsersBean() {
