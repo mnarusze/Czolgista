@@ -8,7 +8,7 @@
 
     <ui:define name="content">
         <center>
-            <p:panel header="Highscores">
+            <p:panel header="Rekordy">
                 <p:dataTable var="highscore" value="#{highscoresBean.highscores}">
                     <p:column width="450" sortBy="#{highscoresBean.getUsername(highscore)}">
                         <f:facet name="header">

@@ -46,7 +46,7 @@ public class LoginBean implements Serializable {
             setUsername(username);
             return "success";
         } catch (ServletException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "An error occured: login failed", null));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Błąd: nie udało się zalogować", null));
             ex.printStackTrace();
         }
         return "failure";

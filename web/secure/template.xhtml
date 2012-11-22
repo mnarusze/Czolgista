@@ -12,14 +12,14 @@
                 <p:growl>
                     <p:toolbar>
                         <p:toolbarGroup align="left">
-                            <p:outputLabel value="Hello #{loginBean.getUsername()}"/>
+                            <p:outputLabel value="Witaj #{loginBean.getUsername()} !"/>
                             <p:separator />
-                            <p:button value="Game" icon="ui-icon-play" outcome="game?faces-redirect=true"/>
+                            <p:button value="Gra" icon="ui-icon-play" outcome="game?faces-redirect=true"/>
                             <p:separator />
-                            <p:button value="Highscores" icon="ui-icon-script" outcome="highscores?faces-redirect=true"/>
+                            <p:button value="Rekordy" icon="ui-icon-script" outcome="highscores?faces-redirect=true"/>
                         </p:toolbarGroup>
                         <p:toolbarGroup align="right">
-                            <p:commandButton value="Logout" icon="ui-icon-close" action="#{loginBean.logout()}"/>
+                            <p:commandButton value="Wyloguj się" icon="ui-icon-close" action="#{loginBean.logout()}"/>
                         </p:toolbarGroup>
                     </p:toolbar>
                 </p:growl>

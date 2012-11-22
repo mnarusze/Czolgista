@@ -9,19 +9,17 @@
     <ui:define name="content">
         <center>
             <h:form id="register">           
-                <p:panel header="Register">
+                <p:panel header="Rejestracja">
                     <h:panelGrid columns="2" id="matchGrid">
                         <h:outputText value="Nazwa użytkownika: " />
-                        <p:inputText value="#{usersBean.user.username}"/>  
+                        <p:inputText value="#{usersBean.user.username}" required="true"/>  
                         <h:outputText value="Email: " />
-                        <p:inputText value="#{usersBean.user.email}"/> 
-                        <h:outputLabel for="pwd1" value="Hasło: *" />
-                        <p:password id="pwd1" value="#{usersBean.user.password}" match="pwd2" label="Password 1" required="true"/>
-                        <h:outputLabel for="pwd2" value="Powtórz: *" />  
-                        <p:password id="pwd2" value="#{usersBean.user.password}" label="Password 2" required="true"/>
+                        <p:inputText value="#{usersBean.user.email}" required="true"/> 
+                        <h:outputLabel for="pwd1" value="Hasło:" />
+                        <p:password id="pwd1" value="#{usersBean.user.password}" label="Password 1" required="true"/>
                     </h:panelGrid>
                     <p:messages id="messages" autoUpdate="true"/>
-                    <p:commandButton id="saveButton" update="matchGrid" value="Rejestruj" action="#{usersBean.addUser(usersBean.user)}" />
+                    <p:commandButton id="saveButton" value="Rejestruj" action="#{usersBean.addUser(usersBean.user)}" />
                 </p:panel>
             </h:form>
         </center>
