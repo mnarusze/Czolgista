@@ -10,18 +10,25 @@
         <center>
             <p:panel header="Highscores">
                 <p:dataTable var="highscore" value="#{highscoresBean.highscores}">
-                    <p:column sortBy="#{highscoresBean.getUsername(highscore)}">
+                    <p:column width="450" sortBy="#{highscoresBean.getUsername(highscore)}">
                         <f:facet name="header">
                             <h:outputText value="Użytkownik" />
                         </f:facet>
                         <h:outputText value="#{highscoresBean.getUsername(highscore)}" />
                     </p:column>
 
-                    <p:column sortBy="#{highscore.score}">
+                    <p:column width="450" sortBy="#{highscore.score}">
                         <f:facet name="header">
                             <h:outputText value="Wynik" />
                         </f:facet>
                         <h:outputText value="#{highscore.score}" />
+                    </p:column>
+                    
+                    <p:column width="450" sortBy="#{highscore.madeOn}">
+                        <f:facet name="header">
+                            <h:outputText value="Data" />
+                        </f:facet>
+                        <h:outputText value="#{highscore.madeOn}" />
                     </p:column> 
                     
                 </p:dataTable>

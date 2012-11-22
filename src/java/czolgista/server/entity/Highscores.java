@@ -5,6 +5,7 @@
 package czolgista.server.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -28,7 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Highscores.findAll", query = "SELECT h FROM Highscores h"),
     @NamedQuery(name = "Highscores.findById", query = "SELECT h FROM Highscores h WHERE h.id = :id"),
     @NamedQuery(name = "Highscores.findByUserId", query = "SELECT h FROM Highscores h WHERE h.userId = :userId"),
-    @NamedQuery(name = "Highscores.findByScore", query = "SELECT h FROM Highscores h WHERE h.score = :score")})
+    @NamedQuery(name = "Highscores.findByScore", query = "SELECT h FROM Highscores h WHERE h.score = :score"),
+    @NamedQuery(name = "Highscores.findByMadeOn", query = "SELECT h FROM Highscores h WHERE h.madeOn = :madeOn")})
 public class Highscores implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -44,6 +48,11 @@ public class Highscores implements Serializable {
     @NotNull
     @Column(name = "score")
     private int score;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "made_on")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date madeOn;
 
     public Highscores() {
     }
@@ -52,10 +61,11 @@ public class Highscores implements Serializable {
         this.id = id;
     }
 
-    public Highscores(Short id, short userId, int score) {
+    public Highscores(Short id, short userId, int score, Date madeOn) {
         this.id = id;
         this.userId = userId;
         this.score = score;
+        this.madeOn = madeOn;
     }
 
     public Short getId() {
@@ -80,6 +90,14 @@ public class Highscores implements Serializable {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public Date getMadeOn() {
+        return madeOn;
+    }
+
+    public void setMadeOn(Date madeOn) {
+        this.madeOn = madeOn;
     }
 
     @Override

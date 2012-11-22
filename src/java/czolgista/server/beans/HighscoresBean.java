@@ -6,7 +6,6 @@ package czolgista.server.beans;
 
 import czolgista.server.entity.Highscores;
 import czolgista.server.entity.Users;
-import java.lang.reflect.Array;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

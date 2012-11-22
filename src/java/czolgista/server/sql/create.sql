@@ -14,6 +14,7 @@ create table `highscores` (
     id smallint NOT NULL AUTO_INCREMENT,
     user_id smallint NOT NULL,
     score int NOT NULL,
+    made_on timestamp,
     PRIMARY KEY (id)
 );
 
@@ -28,9 +29,9 @@ insert into users values (DEFAULT, 'user_1', 'haslo_1', 'user_1@gmail.com');
 insert into users values (DEFAULT, 'user_2', 'haslo_2', 'user_2@gmail.com');
 insert into users values (DEFAULT, 'user_3', 'haslo_3', 'user_3@gmail.com');
 
-insert into highscores values (DEFAULT, 1, 5);
-insert into highscores values (DEFAULT, 2, 10);
-insert into highscores values (DEFAULT, 3, 15);
+insert into highscores values (DEFAULT, 1, 5, CURRENT_TIMESTAMP);
+insert into highscores values (DEFAULT, 2, 10, CURRENT_TIMESTAMP);
+insert into highscores values (DEFAULT, 3, 15, CURRENT_TIMESTAMP);
 
 insert into groups values (DEFAULT, 'user_1', 'standard_users');
 insert into groups values (DEFAULT, 'user_2', 'standard_users');
